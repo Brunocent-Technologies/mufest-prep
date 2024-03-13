@@ -1,50 +1,41 @@
- /* ========  themeSwitcher start ========= */
+// Check if the user has a preferred theme stored in local storage
+let currentTheme = localStorage.getItem("theme") || "light";
 
-  // themeSwitcher
-  const themeSwitcher = document.getElementById('themeSwitcher');
+// Apply the current theme to the document root element
+document.documentElement.setAttribute("data-theme", currentTheme);
 
-  // Theme Vars
-  const userTheme = localStorage.getItem('theme');
-  const systemTheme = window.matchMedia('(prefers-color0scheme: dark)').matches;
+// Apply the current theme to the body
+document.body.classList.add(currentTheme);
 
-  // Initial Theme Check
-  const themeCheck = () => {
-    if (userTheme === 'dark' || (!userTheme && systemTheme)) {
-      document.documentElement.classList.add('dark');
-      return;
-    }
-  };
+// Get the theme switcher checkbox element
+const checkbox = document.getElementById("themeSwitcher");
 
-  // Manual Theme Switch
-  const themeSwitch = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      return;
-    }
+// Set the initial state of the theme switcher checkbox
+if (currentTheme === "dark") {
+  checkbox.checked = true;
+}
 
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  };
+// Function to toggle between light and dark themes
+function toggleTheme() {
+  // Toggle the current theme variable
+  currentTheme = currentTheme === "light" ? "dark" : "light";
 
-  // call theme switch on clicking buttons
-  themeSwitcher.addEventListener('click', () => {
-    themeSwitch();
-  });
+  // Update the theme attribute on the document root element
+  document.documentElement.setAttribute("data-theme", currentTheme);
 
-  // invoke theme check on initial load
-  themeCheck();
+  // Toggle the "dark-theme" class on the body
+  document.body.classList.toggle("dark-theme", currentTheme === "dark");
 
-  /* ========  themeSwitcher end ========= */
+  // Store the theme preference in local storage
+  localStorage.setItem("theme", currentTheme);
+}
 
+// Event listener for the theme switcher checkbox
+checkbox.addEventListener("change", toggleTheme);
 
-
-
-   // Toggle mobile menu visibility
-   document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-    var mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
-  });
-
-
-
+// Toggle mobile menu visibility
+document.getElementById("mobileMenuBtn").addEventListener("click", function () {
+  var mobileMenu = document.getElementById("mobileMenu");
+  mobileMenu.style.display =
+    mobileMenu.style.display === "block" ? "none" : "block";
+});
