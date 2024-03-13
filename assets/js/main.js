@@ -34,3 +34,17 @@
 
   // invoke theme check on initial load
   themeCheck();
+
+  /* ========  themeSwitcher end ========= */
+
+
+
+
+   // Toggle mobile menu visibility
+   document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+    var mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
+  });
+
+
+

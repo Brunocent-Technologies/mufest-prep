@@ -31,8 +31,16 @@
             />
           </a>
         </div>
-        <ul
-          class="flex gap-12 mr-8 p-2 font-bold text-xl text-white text-left uppercase"
+         <!-- Mobile Menu Icon -->
+    <div class="block lg:hidden">
+      <button id="mobileMenuBtn" class="text-white">
+        <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+        </svg>
+      </button>
+    </div>
+        <ul id="lg-menu"
+          class="flex gap-12 mr-8 p-2 font-bold text-xl text-white text-left uppercase "
         >
           <li><a href="Home.html"> Home </a></li>
           <li><a href="about.html"> About Us </a></li>
@@ -124,7 +132,17 @@
         </ul>
       </nav>
     </header>
-
+ <!-- Mobile Menu -->
+<div class="lg:hidden" id="mobileMenu">
+  <ul class="p-4">
+    <li><a href="Home.html"> Home </a></li>
+    <li><a href="about.html"> About Us </a></li>
+    <li><a href="#"> Services </a></li>
+    <li><a href="#"> Contact Us </a></li>
+    <li><a href="login.html"> LOGIN </a></li>
+    <li><a href="login.html" class="bg-blue-700 shadow-lg rounded-md text-white px-4 py-2 mt-4 block"> SIGN UP </a></li>
+  </ul>
+</div>
     <!-- hero section  -->
     <section
       class="dark:bg-gray-100 px-6 py-12 text-center light:bg-black md:px-12 lg:text-left"

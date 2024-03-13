@@ -87,3 +87,35 @@
     from, to { border-color: transparent }
     50% { border-color: transparent; }
   }
+/* Mobile menu styling */
+#mobileMenu {
+  display: none;
+  background-color: #097886;
+}
+
+#mobileMenu a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 767px) {
+  ul#navList {
+    display: none;
+  }
+
+  ul#mobileMenu {
+    display: block;
+  }
+#lg-menu{
+  display: none;
+
+}
+  /* Centering the mobile menu button */
+  #mobileMenuBtn {
+    display: block;
+    margin: 0 auto;
+  }
+}
